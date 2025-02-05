@@ -13,10 +13,12 @@ const TaskListComponent = () => {
   );
 
   const [tasks, setTasks] = useState([defaultTask]);
+  const [loading, setLoading] = useState([true]);
 
   // Control del ciclo de vida del componente
   useEffect(() => {
     console.log("Modificación de tareas");
+    setLoading(false);
 
     return () => {
       console.log("La lista de tareas ha sido desmontada");

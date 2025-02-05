@@ -1,7 +1,16 @@
 import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
+import { useEffect } from "react";
 
-const taskComponent = ({ task }) => {
+const TaskComponent = ({ task }) => {
+  useEffect(() => {
+    console.log("Tarea creada");
+
+    return () => {
+      console.log(`Task: ${task.name} está siendo desmontada`);
+    };
+  }, [task]);
+
   return (
     <div>
       <h2>Nombre: {task.name}</h2>
@@ -12,8 +21,8 @@ const taskComponent = ({ task }) => {
   );
 };
 
-taskComponent.propTypes = {
+TaskComponent.propTypes = {
   task: PropTypes.instanceOf(Task),
 };
 
-export default taskComponent;
+export default TaskComponent;
