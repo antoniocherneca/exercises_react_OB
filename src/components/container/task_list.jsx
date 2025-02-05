@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
 import { Task } from "../../models/task.class";
 import { LEVELS } from "../../models/levels.enum";
 import TaskComponent from "../pure/task";
@@ -9,6 +11,21 @@ const TaskListComponent = () => {
     false,
     LEVELS.NORMAL
   );
+
+  const [tasks, setTasks] = useState([defaultTask]);
+
+  // Control del ciclo de vida del componente
+  useEffect(() => {
+    console.log("Modificación de tareas");
+
+    return () => {
+      console.log("La lista de tareas ha sido desmontada");
+    };
+  }, [tasks]);
+
+  const changeCompleted = (id) => {
+    console.log("Cambiar el estado de una tarea");
+  };
 
   return (
     <div>

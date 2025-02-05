@@ -9,7 +9,7 @@ class LifeCycleExample extends Component {
   }
 
   componentWillMount() {
-    console.log("Antes de montar el componente");
+    console.log("Antes de pintar el componente");
   }
 
   componentDidMount() {
